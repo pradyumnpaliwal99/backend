@@ -22,15 +22,16 @@ try {
 }
 
 const userSchema = require("./models/user.model");
-const orderSchema = require("./models/order.model");
+const cartSchema = require("./models/cart.model");
 const productSchema = require("./models/product.model");
 
 const userRouter = require("./routes/user.route");
-// const orderRouter = require("./routes/order.route");
+const cartRouter = require("./routes/cart.route");
 const productRouter = require("./routes/product.route");
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
+app.use("/api/cart", cartRouter);
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });

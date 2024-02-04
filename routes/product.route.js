@@ -12,5 +12,5 @@ router.route("/addProduct").post(addProduct);
 router.route("/getAllProduct").get(getAllProduct);
 router.route("/updateAProduct/:id").post(updateAProduct);
 router.route("/getProductById/:id").get(getProductById);
-router.route("/deleteProduct/:id").get(deleteProduct);
+router.route("/deleteProduct/:id").delete(deleteProduct);
 module.exports = router;
