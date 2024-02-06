@@ -13,7 +13,7 @@ exports.addToCart = async (req, res) => {
     color,
   } = req.body;
 
-  if (!id || !name || !category || !quantity) {
+  if (!id || !name || !category) {
     res.status(400).json({ error: "fill the details" });
   } else {
     try {
@@ -34,6 +34,20 @@ exports.addToCart = async (req, res) => {
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
+  }
+};
+exports.getCartDetails = async (req, res) => {
+  console.log(req.body);
+
+  try {
+    const cartDetails = await CartModel.find();
+    if (cartDetails) {
+      res.status(201).json(cartDetails);
+    } else {
+      res.status(400).json({ error: "cart is empty" });
+    }
+  } catch (error) {
+    console.log(error.message);
   }
 };
 exports.deleteCart = async (req, res) => {
